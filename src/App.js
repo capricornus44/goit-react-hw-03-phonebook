@@ -7,15 +7,12 @@ import { v4 as uuidv4 } from "uuid"
 import "./App.scss"
 
 class App extends Component {
-  // nameInputId = uuidv4()
-  // numberInputId = uuidv4()
-
   state = {
     contacts: [
-      { id: "id-1", name: "Ilona", number: "+48-675-623-433" },
-      { id: "id-2", name: "Anton", number: "+48-796-284-745" },
-      { id: "id-3", name: "Andrzej", number: "+48-987-245-714" },
-      { id: "id-4", name: "Anna", number: "+48-133-815-019" },
+      // { id: "id-1", name: "Ilona", number: "+48-675-623-433" },
+      // { id: "id-2", name: "Anton", number: "+48-796-284-745" },
+      // { id: "id-3", name: "Andrzej", number: "+48-987-245-714" },
+      // { id: "id-4", name: "Anna", number: "+48-133-815-019" },
     ],
     filter: "",
   }
@@ -50,6 +47,23 @@ class App extends Component {
     this.setState((prevState) => ({
       contacts: prevState.contacts.filter((contact) => contact.id !== contactId),
     }))
+  }
+
+  componentDidMount() {
+    console.log("App componentDidMount")
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    console.log("App componentDidUpdate")
+
+    if (this.state.contacts !== prevState.contacts) {
+      console.log("The contacts field has been updated")
+
+      localStorage.setItem("contacts", JSON.stringify(this.state.contacts))
+    }
+
+    // console.log(prevState)
+    // console.log(this.state)
   }
 
   render() {
