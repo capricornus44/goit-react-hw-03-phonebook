@@ -20,8 +20,8 @@
   border-radius: 10px;
   background-color: #ffffffea;
   box-shadow: 0 4px 6px 4px rgba(0, 0, 0, 0.2);
-}
 
-.section:not(:last-child) {
-  margin-right: 32px;
+  &:not(:last-child) {
+    margin-right: 32px;
+  }
 }
