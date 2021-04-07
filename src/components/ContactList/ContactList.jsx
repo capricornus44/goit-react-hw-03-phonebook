@@ -5,12 +5,14 @@ const ContactList = ({ contacts, onDeleteContact }) => {
     <ul className={css.list}>
       {contacts.map(({ name, id, number }) => {
         return (
-          <li className={css.item} key={id}>
-            {name}: &nbsp;{number}
-            <button className={css.deleteButton} onClick={() => onDeleteContact(id)}>
-              Delete
-            </button>
-          </li>
+          <>
+            <li className={css.item} key={id}>
+              {name}:<span className={css.num}>{number}</span>
+              <button className={css.deleteButton} onClick={() => onDeleteContact(id)}>
+                Delete
+              </button>
+            </li>
+          </>
         )
       })}
     </ul>
